@@ -10,11 +10,16 @@ function handleClick(target) {
     itemEntry.appendChild(p);
     totalPrice = parseFloat(totalPrice) + parseFloat(itemPrice);
     document.getElementById('total-price').innerText = totalPrice;
+    document.getElementById('total').innerText = totalPrice;
     if(totalPrice >= 200){
         const apply= document.getElementById('apply');
         apply.removeAttribute('disabled');
     }
-
+    if(totalPrice > 0){
+        const purchase = document.getElementById('purchase');    
+        purchase.removeAttribute('disabled');
+    }
+    
 }
 
 
@@ -30,5 +35,14 @@ document.getElementById('apply').addEventListener('click', function(){
     document.getElementById('discount').innerText = totalDiscount;
     let total = totalPrice - totalDiscount;
     document.getElementById('total').innerText = total;
-
+    
 })
+
+
+
+
+document.getElementById('close').addEventListener('click', function(){
+    window.location.href = 'index.html';
+})
+
+
